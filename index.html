@@ -195,6 +195,27 @@
         const MIN_SPEED = 5;
         const ACCELERATION = 0.1;
 
+        let dayColor = "#FFFFFF";
+        let nightColor = "#000000";
+        let dayScore = 0;
+        let nightScore = 0;
+        let iteration = 0;
+        let isPlaying = true;
+        let animationFrameId = null;
+
+        const gridWidth = canvas.width / TILE_SIZE;
+        const gridHeight = canvas.height / TILE_SIZE;
+
+        const ownership = new Array(gridWidth * gridHeight).fill(0).map((_, idx) => idx % gridWidth < gridWidth / 2 ? 0 : 1);
+
+        const grid = new Array(gridWidth * gridHeight).fill(0).map((_, idx) => ({
+            x: (idx % gridWidth) * TILE_SIZE,
+            y: Math.floor(idx / gridWidth) * TILE_SIZE,
+            get color() {
+                return ownership[idx] === 0 ? dayColor : nightColor;
+            }
+        }));
+
         
     </script>
 </body>
