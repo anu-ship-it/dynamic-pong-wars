@@ -179,6 +179,22 @@
 
     <script>
         const canvas = document.querySelector("#gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const scoreDisplay = document.querySelector("#scoreDisplay");
+        const dayColorInput = document.querySelector("#dayColorInput");
+        const nightColorInput = document.querySelector("#nightColorInput");
+        const configBtn = document.querySelector("#configBtn");
+        const configPanel = document.querySelector("#configPanel");
+        const resetBtn = document.querySelector("#resetBtn");
+        const playPauseBtn = document.querySelector("#playPauseBtn");
+        const playIcon = document.querySelector(".play-icon");
+        const pauseIcon = document.querySelector(".pause-icon");
+
+        const TILE_SIZE = 25;
+        const MAX_SPEED = 10;
+        const MIN_SPEED = 5;
+        const ACCELERATION = 0.1;
+
         
     </script>
 </body>
