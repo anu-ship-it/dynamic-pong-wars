@@ -261,6 +261,48 @@
         }
 
         function drawBall(ball) {
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, TILE_SIZE / 2, 0, Math.PI * 2);
+            ctx.fillstyle = ball.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function detectCollision(ball) {
+            const ballRect = {
+                left: ball.x - TILE_SIZE / 2,
+                right: ball.x + TILE_SIZE / 2,
+                top: ball.y - TILE_SIZE / 2,
+                bottom: ball.y + TILE_SIZE / 2
+            };
+            grid.forEach((tile, idx) => {
+                const tileRect = {
+                    left: tile.x,
+                    right: tile.x + TILE_SIZE,
+                    top: tile.y,
+                    bottom: tile.y + TILE_SIZE
+                };
+                if (
+                    ballRect.right > tileRect.left &&
+                    ballRect.left < tileRect.right &&
+                    ballRect.bottom > tileRect.top &&
+                    ballRect.top < tileRect.bottom &&
+                    ownership[idx] !== (ball === balls[0] ? 0 : 1)
+                ) {
+                    ownership[idx] = ball === balls[0] ? 0 : 1;
+                    const dx = ball.x - (tile.x + TILE_SIZE / 2);
+                    const dy = ball.y - (tile.y + TILE_SIZE / 2);
+                    if (Math.abs(dx) > Math.abs(dy)) {
+                        ball.vx = -ball.vx;
+                    } else {
+                        ball.vy = -ball.vy;
+                    }
+                }
+            });
+        }
+
+        function checkBoundaries(ball) {
+            
         }
     </script>
 </body>
