@@ -329,6 +329,22 @@
             ball.y += ball.vy;
         }
 
+        function resetGame() {
+            ownership.forEach((_, idx) => {
+                ownership[idx] = idx % gridWidth < gridWidth / 2 ? 0 : 1;
+            });
+            balls[0].x = canvas.width / 4;
+            balls[0].y = canvas.height / 2;
+            balls[0].vx = 8;
+            balls[0].vy = -8;
+            balls[1].x = (canvas.width / 4) * 3;
+            balls[1].y = canvas.height / 2;
+            balls[1].vx = -8;
+            balls[1].vy = 8;
+            iteration = 0;
+            if (!isPlaying) tooglePlayPause();
+        }
+
         
     </script>
 </body>
