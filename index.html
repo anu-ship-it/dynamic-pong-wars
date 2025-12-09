@@ -384,6 +384,12 @@
            updateAllColors(); 
         }
 
+        configBtn.addEventListener("click", toogleConfigPanel);
+        resetBtn.addEventListener("click", resetGame);
+        playPauseBtn.addEventListener("click", tooglePlayPause);
+        dayColorInput.addEventListener("input", handleDayColorChange);
+        nightColorInput.addEventListener("input", handleDayColorChange);
+
         
     </script>
 </body>
