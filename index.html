@@ -345,7 +345,17 @@
             if (!isPlaying) tooglePlayPause();
         }
 
-        
+        function render() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          dayScore = 0;
+          nightScore = 0;
+          grid.forEach((tile, idx) => {
+            drawTile(tile);
+            if (ownership[idx] === 0) dayScore++;
+            if (ownership[idx] === 1) nightScore++;
+          });
+          scoreDisplay  
+        }
     </script>
 </body>
 </html>
