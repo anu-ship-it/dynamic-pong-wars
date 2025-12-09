@@ -354,8 +354,21 @@
             if (ownership[idx] === 0) dayScore++;
             if (ownership[idx] === 1) nightScore++;
           });
-          scoreDisplay  
+          scoreDisplay.textContent = `Day: ${dayScore} | Night: ${nightScore}`;
+          balls.forEach(ball => {
+            drawBall(ball);
+            detectCollision(ball);
+            checkBoundaries(ball);
+            updateBall(ball);
+          });
+          iteration++;
+          if (iteration % 1000 === 0) console.log("Iteration:", iteration);
+          if (isPlaying) {
+            animationFrameId = requestAnimationFrame(render);
+          }
         }
+
+        
     </script>
 </body>
 </html>
