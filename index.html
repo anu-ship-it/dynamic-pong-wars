@@ -306,7 +306,13 @@
                 ball.vx = -ball.vx;
                 ball.x = Math.max(TILE_SIZE / 2, Math.min(canvas.width - TILE_SIZE / 2, ball.x));
             }
+            if (ball.y < TILE_SIZE / 2 || ball.y > canvas.height - TILE_SIZE / 2) {
+                ball.vy = -ball.vy;
+                ball.y = Math.max(TILE_SIZE / 2, Math.min(canvas.height - TILE_SIZE / 2, ball.y));
+            }
         }
+
+        
     </script>
 </body>
 </html>
