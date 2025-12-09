@@ -302,6 +302,10 @@
         }
 
         function checkBoundaries(ball) {
+            if (ball.x < TILE_SIZE / 2 || ball.x > canvas.width - TILE_SIZE / 2) {
+                ball.vx = -ball.vx;
+                ball.x = Math.max(TILE_SIZE / 2, Math.min(canvas.width - TILE_SIZE / 2, ball.x));
+            }
         }
     </script>
 </body>
